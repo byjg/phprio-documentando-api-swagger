@@ -1,0 +1,26 @@
+{
+  "name": "byjg/phprio-documentando-api-swagger",
+  "description": "Código fonte da apresentação Documentaçndo com o Swagger",
+  "type": "project",
+  "require": {
+    "byjg/restserver": "2.1.*",
+    "byjg/config": "2.0.*",
+    "byjg/swagger-test": "1.0.*"
+  },
+  "require-dev": {
+    "zircote/swagger-php": "2.0.*",
+    "phpunit/phpunit": "6.3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Exemplo\\": "src/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joao Gilberto Magalhaes",
+      "email": "joao@byjg.com.br"
+    }
+  ]
+}

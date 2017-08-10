@@ -1,0 +1,191 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Rest API de Exemplo",
+        "description": "Exemplo utilizado na apresenta\u00e7\u00e3o do PHP Rio documentando a sua aplica\u00e7\u00e3o com o Swagger",
+        "termsOfService": "http://localhost/terms/",
+        "contact": {
+            "email": "joao@byjg.com.br"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/byjg/phprio-documentando-api-swagger"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:7000",
+    "basePath": "/rest",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/person/{id}": {
+            "get": {
+                "tags": [
+                    "rest"
+                ],
+                "summary": "Gets an Person Name by Id.",
+                "operationId": "get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The object Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The object",
+                        "schema": {
+                            "$ref": "#/definitions/Name"
+                        }
+                    },
+                    "401": {
+                        "description": "N\u00e3o autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    },
+                    "404": {
+                        "description": "N\u00e3o encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro Geral",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    }
+                }
+            }
+        },
+        "/person": {
+            "post": {
+                "tags": [
+                    "rest"
+                ],
+                "summary": "Update the Person Name object",
+                "operationId": "post",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "The object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Name"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The object",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "Update the Person Name object",
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "N\u00e3o autorizado",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    },
+                    "404": {
+                        "description": "N\u00e3o encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro Geral",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Name": {
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string",
+                    "enum": [
+                        "male",
+                        "female"
+                    ]
+                },
+                "age": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "xml": {
+                "name": "Name"
+            }
+        },
+        "errorProperties": {
+            "properties": {
+                "type": {
+                    "description": "A class de Exce\u00e7\u00e3o",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "A mensagem de erro",
+                    "type": "string"
+                },
+                "file": {
+                    "description": "O arquivo que gerou o erro",
+                    "type": "string"
+                },
+                "line": {
+                    "description": "A linha do erro",
+                    "type": "integer"
+                }
+            }
+        },
+        "error": {
+            "properties": {
+                "error": {
+                    "$ref": "#/definitions/errorProperties"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "jwt-token": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "externalDocs": {
+        "description": "Extenal docs",
+        "url": "https://example.com"
+    }
+}
