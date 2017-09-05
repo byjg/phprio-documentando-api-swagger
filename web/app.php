@@ -37,15 +37,13 @@ use \Exemplo\Container;
  *   name="Authorization"
  * )
  * @SWG\Definition(
- *   definition="errorProperties",
- *   @SWG\Property(property="type", type="string", description="A class de Exceção"),
- *   @SWG\Property(property="message", type="string", description="A mensagem de erro"),
- *   @SWG\Property(property="file", type="string", description="O arquivo que gerou o erro"),
- *   @SWG\Property(property="line", type="integer", description="A linha do erro")
- * )
- * @SWG\Definition(
  *   definition="error",
- *   @SWG\Property(property="error", ref="#/definitions/errorProperties")
+ *   @SWG\Property(property="error",
+ *      @SWG\Property(property="type", type="string", description="A class de Exceção"),
+ *      @SWG\Property(property="message", type="string", description="A mensagem de erro"),
+ *      @SWG\Property(property="file", type="string", description="O arquivo que gerou o erro"),
+ *      @SWG\Property(property="line", type="integer", description="A linha do erro")
+ *   )
  * )
  */
 
