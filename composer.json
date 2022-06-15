@@ -16,11 +16,5 @@
       "Exemplo\\": "src/"
     }
   },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Joao Gilberto Magalhaes",
-      "email": "joao@byjg.com.br"
-    }
-  ]
+  "license": "MIT"
 }
